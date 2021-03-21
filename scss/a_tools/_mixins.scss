@@ -1,0 +1,192 @@
+@use '../a_tools/functions' as *;
+@use '../b_settings/breakpoints' as *;
+
+
+
+@mixin vp-small {
+  @media (min-width: #{bp(tiny) + 1}) and (max-width: #{bp(small)}) {
+    @content;
+  }
+}
+
+@mixin vp-medium {
+  @media (min-width: #{bp(small) + 1}) and (max-width: #{bp(medium)}) {
+    @content;
+  }
+}
+
+@mixin vp-large {
+  @media (min-width: #{bp(medium) + 1}) {
+    @content;
+  }
+}
+
+@mixin vp-small-medium {
+  @media (min-width: #{bp(tiny) + 1}) and (max-width: #{bp(medium)}) {
+    @content;
+  }
+}
+
+@mixin vp-medium-large {
+  @media (min-width: #{bp(small) + 1}) and (max-width: #{bp(large)}) {
+    @content;
+  }
+}
+
+@mixin vp-medium-up {
+  @media (min-width: #{bp(small) + 1}) {
+    @content;
+  }
+}
+
+@mixin vp-nav-mobile {
+  @media (max-width: #{bp('navigation')}) {
+    @content;
+  }
+}
+
+@mixin vp-nav-desktop {
+  @media (min-width: #{bp('navigation') + 1}) {
+    @content;
+  }
+}
+
+
+
+@mixin absolute($args) {
+  @include position(absolute, $args);
+}
+
+@mixin fixed($args) {
+  @include position(fixed, $args);
+}
+
+@mixin relative($args) {
+  @include position(relative, $args);
+}
+
+@mixin position($position, $args) {
+  $offsets: top right bottom left;
+
+  position: $position;
+
+  @each $o in $offsets {
+    $i: index($args, $o);
+
+    @if $i and $i+1 <=length($args) and type-of(nth($args, $i + 1))==number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+}
+
+
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: '';
+    padding-top: (($height / $width) * 100%);
+  }
+}
+
+@mixin undo-aspect-ratio {
+  @include size(100%);
+
+  &:before {
+    display: none;
+  }
+}
+
+
+
+@mixin image($name, $extension, $posX:center, $posY:center, $size:cover, $repeat:no-repeat) {
+  background-image: url(#{$path-images}#{$name}_s.#{$extension});
+  background-position: $posX $posY;
+  background-size: $size;
+  background-repeat: $repeat;
+
+  @include vp-medium {
+    background-image: url(#{$path-images}#{$name}_m.#{$extension});
+  }
+
+  @include vp-large {
+    background-image: url(#{$path-images}#{$name}_l.#{$extension});
+  }
+}
+
+
+
+@mixin responsive-font($size-font-dynamic, $size-min, $size-max: false) {
+  $size-font-dynamic-unitless: $size-font-dynamic / ($size-font-dynamic - $size-font-dynamic + 1);
+  $dimension: if(unit($size-font-dynamic)=='vh', 'height', 'width');
+  $size-min-breakpoint: $size-min / $size-font-dynamic-unitless * 100;
+
+  @media (max-#{$dimension}: #{$size-min-breakpoint}) {
+    font-size: $size-min;
+  }
+
+  @if $size-max {
+    $size-max-breakpoint: $size-max / $size-font-dynamic-unitless * 100;
+
+    @media (min-#{$dimension}: #{$size-max-breakpoint}) {
+      font-size: $size-max;
+    }
+  }
+
+  font-size: $size-font-dynamic;
+}
+
+
+
+// directions: up, down, left, right
+@mixin triangle($direction, $size: 6px, $color: #222) {
+  @include size(0);
+
+  content: '';
+  display: block;
+
+  @if ($direction=='up') {
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  }
+
+  @else if ($direction=='down') {
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+  }
+
+  @else if ($direction=='left') {
+    border-top: $size solid transparent;
+    border-right: $size solid $color;
+    border-bottom: $size solid transparent;
+  }
+
+  @else if ($direction=='right') {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+
+
+@mixin hide-visually {
+  @include size(1px);
+
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

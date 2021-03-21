@@ -1,0 +1,157 @@
+// green
+$color-apple:                           #63B32E;
+$color-vidaloca:                        #54A121;
+$color-goblin:                          #478F17;
+
+//orange
+$color-blazeorange:                     #FF6F00;
+$color-christine:                       #E86A09;
+$color-redstage:                        #C15807;
+$color-pomegranate:                     #E94511;
+
+// red
+$color-redribbon:                       #ac2100;
+
+// white/grey/black
+$color-blackwhite:                      #FFFEFA;
+$color-silversand:                      #B0B5B7;
+$color-rollingstone:                    #6F7C80;
+$color-mineshaft:                       #262626;
+
+
+
+:root {
+  --color-primary:                      #{$color-apple};
+  --color-secondary:                    #{$color-blazeorange};
+
+
+
+  --color-site--bg:                     #{$color-blackwhite};
+
+
+
+  --color-copy:                         #{$color-mineshaft};
+
+
+
+  --color-link:                         var(--color-christine);
+  --color-link--hover:                  var(--color-christine);
+
+
+
+  --color-nav:                          #{$color-mineshaft};
+  --color-nav--hover:                   #{$color-blazeorange};
+  --color-nav--bg:                      transparent;
+
+
+
+  --color-dyedrows:                     transparent;
+
+
+
+  --color-form--bg:                     #{rgba(white, 0.9)};
+  --color-form--bg--index:              #{rgba(white, 0.9)};
+  --color-form--bg--provider:           #{rgba($color-blazeorange, 0.1)};
+
+
+
+  --color-input--border:                #{$color-mineshaft};
+  --color-input--border--focus:         #{$color-apple};
+  --color-input--border--faded:         #{rgba($color-mineshaft, 0.2)};
+  --color-input:                        #{$color-mineshaft};
+  --color-input--faded:                 #{rgba($color-mineshaft, 0.5)};
+  --color-input--bg:                    white;
+  --color-input--unit:                  #{$color-blazeorange};
+  --color-input--placeholder:           rgba(0,0,0,0.33);
+
+
+
+  --color-checkbox--hover:              var(--color-success);
+  --color-checkbox--checked:            var(--color-success);
+
+
+
+  --color-radio:                        white;
+  --color-radio--bg:                    #{$color-blazeorange};
+
+  --color-radio--hover:                 white;
+  --color-radio--hover--bg:             #{$color-pomegranate};
+
+  --color-radio--checked:               white;
+  --color-radio--checked--bg:           #{$color-pomegranate};
+
+  --color-radio--notselected:           white;
+  --color-radio--notselected--bg:       #{$color-silversand};
+
+
+
+  --color-button:                       white;
+  --color-button--bg:                   #{$color-apple};
+  --color-button--hover:                white;
+  --color-button--hover--bg:            #{$color-vidaloca};
+  --color-button--active:               white;
+  --color-button--active--bg:           #{$color-goblin};
+
+  --color-button--card:                 white;
+  --color-button--card--bg:             #{$color-blazeorange};
+  --color-button--card--hover:          white;
+  --color-button--card--hover--bg:      #{$color-christine};
+  --color-button--card--active:         white;
+  --color-button--card--active--bg:     #{$color-redstage};
+
+
+
+  --color-card--varA:                   var(--color-copy);
+  --color-card--varA--bg:               #{rgba($color-blazeorange, 0.1)};
+
+  --color-card--varB:                   white;
+  --color-card--varB--bg:               #{$color-apple};
+
+  --color-card--varC:                   var(--color-copy);
+  --color-card--varC--bg:               #{rgba($color-blazeorange, 0.1)};
+
+  --color-cardnumber:                   white;
+  --color-cardnumber--bg:               #{$color-blazeorange};
+
+
+
+  --color-text--varA:                   white;
+  --color-text--varA--bg:               #{$color-apple};
+
+  --color-text--varB:                   white;
+  --color-text--varB--bg:               #{$color-apple};
+
+
+
+  --color-list--decimal:                white;
+  --color-list--decimal--bg:            #{$color-apple};
+
+
+
+  --color-message:                      #{$color-vidaloca};
+  --color-message--bg:                  #{rgba($color-vidaloca, 0.2)};
+
+
+
+  --color-accordion:                    white;
+  --color-accordion--bg:                #{$color-blazeorange};
+
+  --color-accordion--hover:             white;
+  --color-accordion--hover--bg:         #{$color-apple};
+
+  --color-accordion--active:            white;
+  --color-accordion--active--bg:        #{$color-apple};
+
+  --color-accordion--content--bg:       #{rgba($color-apple, 0.1)};
+
+
+
+  --color-imprint:                      var(--color-copy);
+  --color-imprint--link:                #{$color-blazeorange};
+
+
+
+  --color-success:                      #{$color-apple};
+  --color-error:                        #{$color-redribbon};
+  --color-invalid:                      #{rgba($color-redribbon, 0.3)};
+}

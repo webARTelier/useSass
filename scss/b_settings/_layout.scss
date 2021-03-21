@@ -1,0 +1,83 @@
+@use '../a_tools/functions' as *;
+@use '../a_tools/mixins' as *;
+
+
+
+$path-images:                               '../images/';
+$path-fonts:                                '../fonts/';
+
+
+
+:root {
+  --bp-small:                               #{bp('small')};
+  --bp-medium:                              #{bp('medium')};
+
+  --vp-name:                                small;
+
+  --layout-space--x:                        10px;
+  --layout-space--y:                        20px;
+  --layout-space--subline:                  30px;
+  --layout-space--p:                        30px;
+  --layout-space--p--1st:                   20px;
+
+  --content-minwidth:                       calc(360px - (var(--layout-space--x) * 2));
+  --content-maxwidth:                       1214px;
+
+  --fontsize-copy:                          18px;
+
+  --size-touchable:                         44px;
+
+  --anim-dur:			                          0.3s;
+  --anim-ease:		                          ease-out;
+
+  --z-default:                              1;
+  --z-overlays:                             100;
+  --z-navigation:                           200;
+
+  --input-border--width:                    1px;
+  --input-border--radius:                   0;
+  --input-padding--x:                       10px;
+  --input-padding--y:                       6px;
+  --input-fontsize:                         var(--fontsize-copy);
+
+  --form-gap--row:                          20px;
+  --form-gap--column:                       var(--form-gap--row);
+  --form-gap--split:                        10px;
+}
+
+
+
+@include vp-medium {
+
+  :root {
+    --vp-name:                              medium;
+
+    --layout-space--x:                      23px;
+    --layout-space--y:                      30px;
+
+    --form-gap--column:                     50px;
+  }
+}
+
+
+
+@include vp-large {
+
+  :root {
+    --vp-name:                              large;
+
+    --layout-space--x:                      70px;
+    --layout-space--y:                      40px;
+
+    --form-gap--column:                     50px;
+  }
+}
+
+
+
+@include vp-nav-desktop {
+
+  :root {
+    --navstate:                             desktop;
+  }
+}

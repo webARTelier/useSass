@@ -1,0 +1,56 @@
+@use '../b_settings/typography' as *;
+
+
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+
+body {
+  @include typo-copy;
+  height: 100%;
+}
+
+
+
+svg {
+  pointer-events: none;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+
+
+p {
+  margin: 0;
+}
+
+
+
+b,
+strong {
+  @include typo-bold;
+}
+
+
+
+small {
+  @include typo-small;
+}

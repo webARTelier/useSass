@@ -1,0 +1,43 @@
+@use 'layout' as *;
+
+
+
+@font-face {
+  font-family: copy;
+  src: url(../fonts/#{$path_fonts}raleway-regular-webfont.woff2) format('woff2'),
+  url(../fonts/#{$path_fonts}raleway-regular-webfont.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: headline;
+  src: url(../fonts/#{$path_fonts}raleway-bold-webfont.woff2) format('woff2'),
+  url(../fonts/#{$path_fonts}raleway-bold-webfont.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@mixin typo-copy {
+  font-family: copy, sans-serif;
+  font-size: var(--fontsize-copy);
+  line-height: calc(1em + 10px);
+  color: var(--color-copy);
+}
+
+
+@mixin typo-bold {
+  font-family: headline, sans-serif;
+  font-weight: normal;
+}
+
+
+
+@mixin typo-small {
+  font-size: 12px;
+  line-height: 1.3;
+}

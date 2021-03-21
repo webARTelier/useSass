@@ -1,0 +1,18 @@
+@use '../a_tools/functions' as *;
+@use '../a_tools/mixins' as *;
+@use '../b_settings/breakpoints' as *;
+@use '../b_settings/layout' as *;
+@use '../b_settings/colors' as *;
+@use '../e_objects/objects' as *;
+
+
+
+.test {
+  @include content--centered;
+
+  background-color: var(--color-primary);
+
+  @include vp-medium {
+    background-color: var(--color-secondary);
+  }
+}

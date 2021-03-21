@@ -1,0 +1,12 @@
+@use '../b_settings/breakpoints' as *;
+
+
+
+@function bp($bp) {
+  @return map-get($breakpoints, $bp);
+}
+
+
+
+@function goldenratio-a($width) { @return $width / 1.618; }
+@function goldenratio-b($width) { @return $width - ($width / 1.618); }
